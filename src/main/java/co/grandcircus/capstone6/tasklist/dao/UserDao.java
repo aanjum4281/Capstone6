@@ -1,4 +1,4 @@
-package co.grandcircus.capstone6.dao;
+package co.grandcircus.capstone6.tasklist.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

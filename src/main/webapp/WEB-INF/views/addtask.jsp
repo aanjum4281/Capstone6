@@ -25,16 +25,17 @@
 			      
 		<div> 	    
 		
-		<p> ID: <input name="id" required/> </p>
-		<p> Complete: <input name="compete" /> </p>
+		<!-- <p> ID: <input name="id" hidden/> </p> -->
+		<p> Complete: <input type="checkbox" name="complete" /> </p>
 		<p> Description: <input name= "description" required/> </p>
 		<p> Due Date: <input type="date" name="date" required/> </p> 
-		<p> User: <input name= "user" required /> </p>
+		<!-- <p> User: <input name= "user" required /> </p> -->
+		
 		
 		</div>
 		<p>
 			<!-- Clicking a button will submit the form. -->
-			<button type="submit" class="btn-btn-primary mb-2"> Add Task!</button>
+			<button type="submit" class="btn btn-primary mb-2"> Add Task!</button>
 			<!-- <button type="clear" class="btn-btn-secondary mb-2"> clear</button> -->
 			
 		</p>

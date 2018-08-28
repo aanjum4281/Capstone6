@@ -6,11 +6,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.grandcircus.capstone6.dao.TaskDao;
+import co.grandcircus.capstone6.tasklist.dao.TaskDao;
 
 
 
@@ -31,42 +32,42 @@ public class TaskListController {
 		return mav;
 	}
 	
-//	@RequestMapping("/add-task")
-//	public ModelAndView showAdd() {
-//		ModelAndView mav = new ModelAndView("addtask");
-//		return mav;
-//
-//	}
-//	
-//	@RequestMapping("/add")
-//	public ModelAndView showNew(
-//
-//			@RequestParam("id") Long id, @RequestParam("description") String description,
-//			@RequestParam("complete") Boolean complete, @RequestParam("dueDate") String dueDate, 
-//			@RequestParam("user") User user ) {
-//
-//		Task task = new Task();
-//
-//		task.setId(id);
-//		task.setDescription(description);
-//		task.setComplete(complete);
-//		task.setDueDate(dueDate);
-//		task.setUser(user);
-//		
-//		taskDao.create(task);
-//		ModelAndView mav = new ModelAndView("/");
-//		mav.addObject("task", task);
-//
-//		return mav;
-//
-//	}
-//	
-//	// delete item
-//		@RequestMapping("/delete")
-//		public ModelAndView delete(@RequestParam("id") Long id) {
-//			taskDao.delete(id);
-//			return new ModelAndView("redirect:/");
-//		}
-//	
+	@RequestMapping("/add-task")
+	public ModelAndView showAdd() {
+		ModelAndView mav = new ModelAndView("addtask");
+		return mav;
+
+	}
+	
+	@PostMapping("/add")
+	public ModelAndView showNew(
+
+			 @RequestParam("description") String description,
+			@RequestParam("complete") boolean complete, @RequestParam("date") String date
+			) {
+
+		Task task = new Task();
+
+		
+		task.setDescription(description);
+		task.setComplete(complete);
+		task.setDueDate(date);
+	
+		
+		taskDao.create(task);
+		ModelAndView mav = new ModelAndView("redirect:/");
+		mav.addObject("task", task);
+
+		return mav;
+
+	}
+	
+	// delete item
+		@RequestMapping("/delete")
+		public ModelAndView delete(@RequestParam("id") Long id) {
+			taskDao.delete(id);
+			return new ModelAndView("redirect:/");
+		}
+	
 	
 }
