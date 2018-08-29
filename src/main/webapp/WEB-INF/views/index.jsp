@@ -19,7 +19,7 @@
 	<table class="table">
             <thead>
                 <tr>
-                  <th>ID</th><th>Complete</th> <th>Description</th><th>Due Date</th><th> User</th>
+                  <th>ID</th><th>Complete</th> <th>Description</th><th>Due Date</th>
                 </tr>
             </thead>
             <tbody>

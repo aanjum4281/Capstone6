@@ -31,5 +31,6 @@
 		<a href="https://github.com/login/oauth/authorize?client_id=198982ab57a754ed1f24">Sign in with GitHub</a>
 	</p> -->
 	<p><a href="/">Back to Home</a> </p>
+	<p> <a href="/add-task">Add a task</a>  </p>
 </body>
 </html>

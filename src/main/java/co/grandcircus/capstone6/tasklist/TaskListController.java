@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -60,7 +61,7 @@ public class TaskListController {
 			List<Task> task = taskDao.findAll();
 			//Match
 			session.setAttribute("user", user);
-			return new ModelAndView("redirect:/");
+			return new ModelAndView("redirect:/add-task");
 		} else {
 			//not a match
 			ModelAndView mav = new ModelAndView("login");
@@ -93,7 +94,7 @@ public class TaskListController {
 
 		userDao.create(user);
 
-		ModelAndView mav = new ModelAndView("redirect:/");
+		ModelAndView mav = new ModelAndView("redirect:/add-task");
 		mav.addObject("user", user);
 
 		return mav;
@@ -110,13 +111,14 @@ public class TaskListController {
 	@PostMapping("/add")
 	public ModelAndView showNew(
 
-			 @RequestParam("description") String description,
+//			@SessionAttribute(name="user")User user, 
+			@RequestParam("description") String description,
 			@RequestParam("complete") boolean complete, @RequestParam("date") String date
 			) {
 
 		Task task = new Task();
 
-		
+//		task.setUser(user);
 		task.setDescription(description);
 		task.setComplete(complete);
 		task.setDueDate(date);

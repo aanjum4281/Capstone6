@@ -26,6 +26,7 @@
 		<div> 	    
 		
 		<!-- <p> ID: <input name="id" hidden/> </p> -->
+		<p> User: <input type="email" name="emailAddress"/> </p>
 		<p> Complete: <input type="checkbox" name="complete" /> </p>
 		<p> Description: <input name= "description" required/> </p>
 		<p> Due Date: <input type="date" name="date" required/> </p> 

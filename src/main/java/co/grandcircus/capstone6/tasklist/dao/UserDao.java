@@ -44,7 +44,8 @@ public class UserDao {
 
 	public User findByEmailAddress(String emailAddress) {
 		// TODO Auto-generated method stub
-		return user.values().stream().filter(user -> emailAddress.equals(user.getEmailAddress())).findAny().orElse(null);
+		return em.createQuery("FROM User WHERE email = :email", User.class).setParameter("emailAdress", emailAddress).getSingleResult();
+		
 	}
 	
 	

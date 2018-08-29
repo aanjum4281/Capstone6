@@ -41,7 +41,7 @@
 			<!-- <button type="clear" class="btn-btn-secondary mb-2"> clear</button> -->
 			
 		</p>
-		
+		<p> <a href="/add-task">Add a task</a>  </p>
 		<p><a href="/">Back to Home</a> </p>
 		
 		</div>
