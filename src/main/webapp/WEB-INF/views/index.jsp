@@ -38,8 +38,14 @@
                 </c:forEach>
             </tbody>
         </table>
+        
+        <c:if test="${ not empty user }">
+		<p>Feel free to browse our <a href="/secrets">secrets</a>.</p>
+	</c:if>
 	
 	<p> <a href="/add-task">Add a task</a>  </p>
+	<p> <a href="/registration-form"> Register</a> </p>
+	<p> <a href="login"> Login</a> </p>
 	
 	</form>
 
