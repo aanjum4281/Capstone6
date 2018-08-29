@@ -19,9 +19,6 @@ import co.grandcircus.capstone6.tasklist.dao.TaskDao;
 import co.grandcircus.capstone6.tasklist.dao.UserDao;
 
 
-
-
-
 @Controller
 public class TaskListController {
 	
@@ -54,12 +51,13 @@ public class TaskListController {
 	
 	
 	@PostMapping("/login")
-	// get the username and password from the form when it's submitted.
-	public ModelAndView submitLoginForm(HttpSession session, @RequestParam("username") String emailAddress, 
+	// get the email and password from the form when it's submitted.
+	public ModelAndView submitLoginForm(HttpSession session, @RequestParam("emailAddress") String emailAddress, 
 			@RequestParam("password") String password) {
 		 
 		User user = userDao.findByEmailAddress(emailAddress);
 		if (user != null && password.equals(user.getPassword())) {
+			List<Task> task = taskDao.findAll();
 			//Match
 			session.setAttribute("user", user);
 			return new ModelAndView("redirect:/");

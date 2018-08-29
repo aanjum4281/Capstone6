@@ -1,6 +1,8 @@
 package co.grandcircus.capstone6.tasklist.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,6 +21,8 @@ public class UserDao {
 	
 	@PersistenceContext
 	EntityManager em;
+	private Map<Long, User> user = new HashMap<>();
+//	private long nextId = 1;
 	
 	public List<User> findAll(){
 		return em.createQuery("FROM User", User.class).getResultList();
@@ -28,8 +32,6 @@ public class UserDao {
 		return em.find(User.class, id);
 	}
 	
-	//find by email method
-	
 	
 	public  void create(User user) {
 		em.merge(user);
@@ -37,12 +39,12 @@ public class UserDao {
 	
 	public void delete(Long id) {
 		User user = em.getReference(User.class, id);
-		em.remove(user);
+		em.remove(user); 
 	}
 
 	public User findByEmailAddress(String emailAddress) {
 		// TODO Auto-generated method stub
-		return User.values().stream().filter(user -> emailAddress.equals(user.getEmailAddress())).findAny().orElse(null);
+		return user.values().stream().filter(user -> emailAddress.equals(user.getEmailAddress())).findAny().orElse(null);
 	}
 	
 	

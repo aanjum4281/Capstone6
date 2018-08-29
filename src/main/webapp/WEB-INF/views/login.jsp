@@ -14,7 +14,7 @@
 	
 	<p class="message">${ message }</p>
 	
-	<form action="/login" method="post">
+	<form action="/" method="post">
 		<p>
 			<label for="username">Email:</label> <input id="username" name="username" type="email" value="${ param.emailAddress }" required minlength="2" />
 		</p>		<p>

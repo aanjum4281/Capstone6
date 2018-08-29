@@ -15,8 +15,7 @@ public class User {
 	long id;
 	String emailAddress;
 	String password;
-	@OneToMany (mappedBy = "user")
-	List<Task> tasks;
+	
 	
 	public User() {
 		// TODO Auto-generated constructor stub
